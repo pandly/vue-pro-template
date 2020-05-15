@@ -2,14 +2,6 @@
 
 > {{ description }}
 
-## 安装
-
-> 通过`pandly-cli`脚手架进行安装，不能直接`clone`
-
-`npm install pandly-cli -g`
-
-`pandly create xxx`
-
 ## 命令
 
 - 安装：`npm install`
@@ -207,7 +199,7 @@ props: { titleText: String }
 
 ### 代码提交规范
 
-采取`angular`团队的代码提交规范，使用`npm run commit`来代替`git commit`，按照约束一步步填写`commit`，`commit`编写完成以后会对`commit`的格式进行校验，以及对在暂存区的`.js/.vue`文件进行`lint`校验。
+采取`angular`团队的代码提交规范，使用`npm run commit`来代替`git commit`，按照约束一步步填写`commit`，`commit`编写完成以后会对`commit`的格式进行校验，以及对在暂存区的`.js/.vue`文件进行`lint`校验。
 
 ### 初始化
 
