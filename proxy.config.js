@@ -17,8 +17,8 @@ const devHostName = 'xxx.xx.x.xx'
 const devServerPort = '8085'
 // 代理路由表
 const PROXY_ROUTER = {
-  '127.0.0.1': 'https://nei.hz.netease.com/api/apimock-v2/415dac7f87d1f28c8e46fca82beb1b23', // 代理到nei环境
-  'proxy.netease.com': 'https://ssc.netease.com/', // 代理到测试环境
+  '127.0.0.1': 'https://nei.hz.netease.com/api/', // 代理到nei环境
+  'proxy.netease.com': 'https://proxy.netease.com/', // 代理到测试环境
   [ip]: `http://${devHostName}:${devServerPort}` // 代理到后端的ip环境
 }
 
