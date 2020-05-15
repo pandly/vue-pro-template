@@ -1,0 +1,93 @@
+{
+  "name": "{{ name }}",
+  "version": "1.0.0",
+  "description": "{{ description }}",
+  "author": "{{ author }}",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "test:e2e": "vue-cli-service test:e2e",
+    "lint": "vue-cli-service lint",
+    "commit": "git-cz",
+    "version": "standard-changelog -f && git add CHANGELOG.md"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11",
+    "vue-router": "^3.1.6",
+    "vuex": "^3.1.3",
+    {{#if_eq UI "element-ui"}}
+    "element-ui": "^2.13.1"
+    {{/if_eq}}
+    {{#if_eq UI "view-design"}}
+    "view-design": "^4.2.0"
+    {{/if_eq}}
+    {{#if_eq UI "ant-design-vue"}}
+    "ant-design-vue": "^1.5.3"
+    {{/if_eq}}
+  },
+  "devDependencies": {
+    {{#if_eq import "demand"}}
+    "@babel/preset-env": "^7.9.6",
+    {{/if_eq}}
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@vue/cli-plugin-babel": "~4.3.0",
+    "@vue/cli-plugin-eslint": "~4.3.0",
+    "@vue/cli-plugin-router": "~4.3.0",
+    "@vue/cli-plugin-vuex": "~4.3.0",
+    "@vue/cli-service": "~4.3.0",
+    "@vue/eslint-config-standard": "^5.1.2",
+    "babel-eslint": "^10.1.0",
+    {{#if_eq import "demand"}}
+    "babel-plugin-component": "^1.1.1",
+    {{/if_eq}}
+    {{#if_eq import "demand"}}
+    "babel-plugin-import": "^1.13.0",
+    {{/if_eq}}
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "^3.2.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^6.2.2",
+    {{#if git}}
+    "husky": "^4.2.5",
+    {{/if}}
+    "lint-staged": "^10.2.2",
+    "mocker-api": "^2.0.4",
+    "node-sass": "^4.12.0",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "standard-changelog": "^2.0.24",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  {{#if git}}
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -e $GIT_PARAMS"
+    }
+  },
+  {{/if}}
+  "lint-staged": {
+    "*.{js,vue}": [
+      "eslint --fix"
+    ]
+  }
+}
