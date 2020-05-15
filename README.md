@@ -7,6 +7,7 @@
 > 通过`pandly-cli`脚手架进行安装，不能直接`clone`
 
 `npm install pandly-cli -g`
+
 `pandly create xxx`
 
 ## 命令
